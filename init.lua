@@ -672,7 +672,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -1014,3 +1014,12 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+-- CUSTOM SETTING
+-- Go-specific keymaps
+vim.keymap.set('n', '<leader>gr', ':!go run %<CR>', { desc = '[G]o [R]un current file' })
+vim.keymap.set('n', '<leader>gt', ':!go test ./...<CR>', { desc = '[G]o [T]est all' })
+vim.keymap.set('n', '<leader>gb', ':!go build<CR>', { desc = '[G]o [B]uild' })
+vim.keymap.set('n', '<leader>gf', function()
+  vim.lsp.buf.format()
+end, { desc = '[G]o [F]ormat' })
