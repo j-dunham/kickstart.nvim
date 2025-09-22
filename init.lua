@@ -673,6 +673,8 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
+        html = {},
+        tailwindcss = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -976,8 +978,8 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -1016,6 +1018,12 @@ require('lazy').setup({
 -- vim: ts=2 sts=2 sw=2 et
 --
 -- CUSTOM SETTING
+vim.cmd 'set tabstop=4'
+vim.cmd 'set shiftwidth=4'
+vim.cmd 'set expandtab'
+vim.cmd 'set autoindent'
+vim.cmd 'set smartindent'
+
 -- Go-specific keymaps
 vim.keymap.set('n', '<leader>gr', ':!go run %<CR>', { desc = '[G]o [R]un current file' })
 vim.keymap.set('n', '<leader>gt', ':!go test ./...<CR>', { desc = '[G]o [T]est all' })
